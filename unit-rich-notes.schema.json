@@ -1,0 +1,146 @@
+{
+  "$id": "unit-rich-notes@0.1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unit Rich Notes.",
+  "description": "Specification for rich text notes as part of the unit data.",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "description": "Structure and labels of all used tags",
+      "items": {
+        "$ref": "#/defs/tagEntry"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "description": "All rich text notes.",
+      "items": {
+        "$ref": "#/defs/note"
+      }
+    }
+  },
+  "defs": {
+    "languageTaggedText": {
+      "description": "Language tagged text",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "description": "ISO-language code",
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z]{2}$"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "lang",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "tagEntry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/languageTaggedText"
+        },
+        "description": {
+          "$ref": "#/$defs/languageTaggedText"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/defs/tagEntry"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ],
+      "additionalProperties": false
+    },
+    "link": {
+      "type": "object",
+      "description": "Url as part of a note to link to other resources",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/languageTaggedText"
+        },
+        "description": {
+          "$ref": "#/$defs/languageTaggedText"
+        },
+        "type": {
+          "type": "string",
+          "description": "Used to classify the link for better UI",
+          "enum": [
+            "COMPETENCE_DESCRIPTION",
+            "COMPETENCE_STRUCTURE",
+            "MATERIAL_DOWNLOAD",
+            "MATERIAL_READ",
+            "MEDIA_SOURCES",
+            "ASSESSMENT_TASK_EXAMPLE",
+            "TRAINING_TASK_EXAMPLE"
+          ],
+          "default": "COMPETENCE_DESCRIPTION"
+        }
+      },
+      "required": [
+        "url",
+        "label"
+      ],
+      "additionalProperties": false
+    },
+    "note": {
+      "type": "object",
+      "description": "Properties of one entry in the notes list",
+      "properties": {
+        "tagId": {
+          "type": "string",
+          "description": "Id of the corresponding tag the note refers to.",
+          "default": "BUTTONS"
+        },
+        "itemReferences": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "This item id references to the item list of the unit."
+          },
+          "minItems": 1
+        },
+        "content": {
+          "type": "string",
+          "description": "Stringified Html with embedded base64 coded images if needed.",
+          "minLength": 1
+        },
+        "links": {
+          "type": "array",
+          "description": "List of links providing more information.",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "tagId",
+        "content"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

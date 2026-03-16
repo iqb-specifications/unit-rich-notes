@@ -1,0 +1,21 @@
+{
+  "name": "@iqbspecs/unit-rich-notes",
+  "author": "IQB - Institut zur Qualitätsentwicklung im Bildungswesen",
+  "license": "CC0-1.0",
+  "description": "Specification for rich text notes as part of the unit data.",
+  "scripts": {
+    "generate_docs": "asyncapi generate fromTemplate ./make_doc/asyncapi.yaml @asyncapi/html-template --param config=make_doc/asyncapi.config.json -o ./public --force-write --use-new-generator && cat make_doc/add.css >> ./public/css/global.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqb-specifications/unit-rich-notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iqb-specifications/unit-rich-notes/issues"
+  },
+  "homepage": "https://github.com/iqb-specifications/unit-rich-notes#readme",
+  "devDependencies": {
+    "@asyncapi/cli": "^2.11.0",
+    "@asyncapi/html-template": "^3.1.0"
+  }
+}
