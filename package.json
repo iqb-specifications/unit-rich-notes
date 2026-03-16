@@ -5,7 +5,7 @@
   "description": "Specification for rich text notes as part of the unit data.",
   "scripts": {
     "validate-schema": "test-schema test unit-rich-notes.schema.json",
-    "generate_docs": "asyncapi generate fromTemplate ./make_doc/asyncapi.yaml @asyncapi/html-template --param config=make_doc/asyncapi.config.json -o ./public --force-write --use-new-generator && cat make_doc/add.css >> ./public/css/global.min.css"
+    "generate_docs": "asyncapi generate fromTemplate ./asyncapi.yaml @asyncapi/html-template --use-new-generator --param singleFile=false --param config=asyncapi.config.json -o ./public --force-write && mkdir -p ./public/css && cat add.css >> ./public/css/global.min.css"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,11 @@
   "homepage": "https://github.com/iqb-specifications/unit-rich-notes#readme",
   "devDependencies": {
     "@iqbspecs/validate-json": "^0.4.0",
-    "@asyncapi/cli": "^2.11.0",
+    "@asyncapi/cli": "^4.1.1",
     "@asyncapi/html-template": "^3.1.0",
     "@babel/preset-typescript": "^7.24.1",
     "@types/node": "^20.4.4",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
   }
 }

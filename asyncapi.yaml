@@ -18,4 +18,4 @@ channels:
 components:
   schemas:
     metadata-values:
-      $ref: '../unit-rich-notes.schema.json'
+      $ref: './unit-rich-notes.schema.json'
