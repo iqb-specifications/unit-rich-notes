@@ -9,18 +9,23 @@
       "type": "array",
       "description": "Structure and labels of all used tags",
       "items": {
-        "$ref": "#/defs/tagEntry"
+        "$ref": "#/definitions/tagEntry"
       }
     },
     "notes": {
       "type": "array",
       "description": "All rich text notes.",
       "items": {
-        "$ref": "#/defs/note"
+        "$ref": "#/definitions/note"
       }
     }
   },
-  "defs": {
+  "required": [
+    "tags",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "definitions": {
     "languageTaggedText": {
       "description": "Language tagged text",
       "type": "array",
@@ -52,15 +57,15 @@
           "type": "string"
         },
         "label": {
-          "$ref": "#/$defs/languageTaggedText"
+          "$ref": "#/definitions/languageTaggedText"
         },
         "description": {
-          "$ref": "#/$defs/languageTaggedText"
+          "$ref": "#/definitions/languageTaggedText"
         },
         "children": {
           "type": "array",
           "items": {
-            "$ref": "#/defs/tagEntry"
+            "$ref": "#/definitions/tagEntry"
           },
           "minItems": 1
         }
@@ -79,10 +84,10 @@
           "type": "string"
         },
         "label": {
-          "$ref": "#/$defs/languageTaggedText"
+          "$ref": "#/definitions/languageTaggedText"
         },
         "description": {
-          "$ref": "#/$defs/languageTaggedText"
+          "$ref": "#/definitions/languageTaggedText"
         },
         "type": {
           "type": "string",
@@ -131,7 +136,7 @@
           "type": "array",
           "description": "List of links providing more information.",
           "items": {
-            "$ref": "#/$defs/link"
+            "$ref": "#/definitions/link"
           },
           "minItems": 1
         }

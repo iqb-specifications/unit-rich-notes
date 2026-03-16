@@ -1,0 +1,138 @@
+{
+    "tags": [
+        {
+            "id": "transript",
+            "label": [
+                {
+                    "lang": "de",
+                    "value": "Transript für das Haupt-Audio"
+                }
+            ],
+            "children": [
+                {
+                    "id": "original",
+                    "label": [
+                        {
+                            "lang": "de",
+                            "value": "Transript der Originalquelle"
+                        }
+                    ]
+                },
+                {
+                    "id": "adapted",
+                    "label": [
+                        {
+                            "lang": "de",
+                            "value": "Transript der angepassten Version für die Aufgabe"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "didactical_guide",
+            "label": [
+                {
+                    "lang": "de",
+                    "value": "Didaktische Handreichungen"
+                }
+            ],
+            "children": [
+                {
+                    "id": "answering",
+                    "label": [
+                        {
+                            "lang": "de",
+                            "value": "Beantwortung"
+                        }
+                    ],
+                    "children": [
+                        {
+                            "id": "full_credit",
+                            "label": [
+                                {
+                                    "lang": "de",
+                                    "value": "Richtige Antworten"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "competence_level",
+                            "label": [
+                                {
+                                    "lang": "de",
+                                    "value": "Diskussion des Schwierigkeitsniveaus"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "misconceptions",
+                            "label": [
+                                {
+                                    "lang": "de",
+                                    "value": "Typische Falschantworten"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "problems",
+                            "label": [
+                                {
+                                    "lang": "de",
+                                    "value": "Mögliche Probleme bei der Beantwortung"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "adaptation",
+                    "label": [
+                        {
+                            "lang": "de",
+                            "value": "Empfehlungen zur Modifikation"
+                        }
+                    ],
+                    "children": [
+                        {
+                            "id": "stimulus",
+                            "label": [
+                                {
+                                    "lang": "de",
+                                    "value": "Den Stimulus verändern"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items",
+                            "label": [
+                                {
+                                    "lang": "de",
+                                    "value": "Die Fragen/Items verändern"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "notes": [
+        {
+            "tagId": "didactical_guide.answering.misconceptions",
+            "content": "das ist ein html",
+            "links": [
+                {
+                    "url": "https://iqb-berlin.github.io/rising-stars/intro.html",
+                    "label": [
+                        {
+                            "lang": "de",
+                            "value": "StarS Werkstatt Supertext"
+                        }
+                    ],
+                    "type": "MATERIAL_READ"
+                }
+            ]
+        }
+    ]
+}
