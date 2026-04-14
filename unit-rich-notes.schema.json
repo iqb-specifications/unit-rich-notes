@@ -1,81 +1,58 @@
 {
-  "$id": "unit-rich-notes@0.1",
+  "$id": "unit-rich-notes@0.2",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Unit Rich Notes.",
   "description": "Specification for rich text notes as part of the unit data.",
-  "type": "object",
-  "properties": {
-    "tags": {
-      "type": "array",
-      "description": "Structure and labels of all used tags",
-      "items": {
-        "$ref": "#/definitions/tagEntry"
+  "type": "array",
+  "items": {
+    "type": "object",
+    "description": "Properties of one entry in the notes list",
+    "properties": {
+      "tagId": {
+        "type": "string",
+        "description": "Reference to an entry of a catalog of tags (published/standard or local).",
+        "examples": [
+          "iqb-rich-notes-tags@3.2:didactical-guide.answering.misconceptions",
+          "isb-rich-notes-tags@1.2:didactical-guide.answering.by-framework.link"
+        ]
+      },
+      "tagLabel": {
+        "type": "string",
+        "description": "Label of the corresponding tag the note refers to.",
+        "examples": [
+          "Antwort-Analyse: Typische Fehler",
+          "Verweis zu Eintrag in Rahmenlehrplan"
+        ]
+      },
+      "itemUuids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "description": "This uuid references to the item(s) to be found in the item list of the unit."
+        },
+        "minItems": 1
+      },
+      "content": {
+        "type": "string",
+        "description": "Stringified Html with embedded base64 coded images if needed.",
+        "minLength": 1
+      },
+      "links": {
+        "type": "array",
+        "description": "List of links providing more information.",
+        "items": {
+          "$ref": "#/definitions/link"
+        },
+        "minItems": 1
       }
     },
-    "notes": {
-      "type": "array",
-      "description": "All rich text notes.",
-      "items": {
-        "$ref": "#/definitions/note"
-      }
-    }
+    "required": [
+      "tagId",
+      "content"
+    ],
+    "additionalProperties": false  
   },
-  "required": [
-    "tags",
-    "notes"
-  ],
-  "additionalProperties": false,
   "definitions": {
-    "languageTaggedText": {
-      "description": "Language tagged text",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "lang": {
-            "description": "ISO-language code",
-            "type": "string",
-            "minLength": 1,
-            "pattern": "^[a-z]{2}$"
-          },
-          "value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "lang",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "minItems": 1
-    },
-    "tagEntry": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "label": {
-          "$ref": "#/definitions/languageTaggedText"
-        },
-        "description": {
-          "$ref": "#/definitions/languageTaggedText"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/tagEntry"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "id",
-        "label"
-      ],
-      "additionalProperties": false
-    },
     "link": {
       "type": "object",
       "description": "Url as part of a note to link to other resources",
@@ -84,10 +61,10 @@
           "type": "string"
         },
         "label": {
-          "$ref": "#/definitions/languageTaggedText"
+          "type": "string"
         },
         "description": {
-          "$ref": "#/definitions/languageTaggedText"
+          "type": "string"
         },
         "type": {
           "type": "string",
@@ -107,43 +84,6 @@
       "required": [
         "url",
         "label"
-      ],
-      "additionalProperties": false
-    },
-    "note": {
-      "type": "object",
-      "description": "Properties of one entry in the notes list",
-      "properties": {
-        "tagId": {
-          "type": "string",
-          "description": "Id of the corresponding tag the note refers to.",
-          "default": "BUTTONS"
-        },
-        "itemReferences": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "This item id references to the item list of the unit."
-          },
-          "minItems": 1
-        },
-        "content": {
-          "type": "string",
-          "description": "Stringified Html with embedded base64 coded images if needed.",
-          "minLength": 1
-        },
-        "links": {
-          "type": "array",
-          "description": "List of links providing more information.",
-          "items": {
-            "$ref": "#/definitions/link"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "tagId",
-        "content"
       ],
       "additionalProperties": false
     }
