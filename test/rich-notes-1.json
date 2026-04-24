@@ -1,19 +1,14 @@
 [
-    {
-        "tagId": "https://w3id.org/iqb/v37/zg/",
-        "tagLabel": "",
-        "content": "das ist ein html",
-        "links": [
-            {
-                "url": "https://iqb-berlin.github.io/rising-stars/intro.html",
-                "label": [
-                    {
-                        "lang": "de",
-                        "value": "StarS Werkstatt Supertext"
-                    }
-                ],
-                "type": "MATERIAL_READ"
-            }
-        ]
-    }
+  {
+    "tagId": "iqb-rich-notes-tags@3.2:didactical-guide.answering.misconceptions",
+    "tagLabel": "Antwort-Analyse: Typische Fehler",
+    "content": "<p>Das ist ein HTML-Beispiel.</p>",
+    "links": [
+      {
+        "url": "https://iqb-berlin.github.io/rising-stars/intro.html",
+        "label": "StarS Werkstatt Supertext",
+        "type": "MATERIAL_READ"
+      }
+    ]
+  }
 ]
